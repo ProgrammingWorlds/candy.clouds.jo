@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candy Clouds | باقات الورد والكاندي</title>
+  <meta name="description" content="Candy Clouds — مختصون بجميع باقات الورد والكاندي في الأردن. اطلب الآن عبر واتساب." />
+  <meta name="theme-color" content="#2E1520" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23C2506F'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23FBF4EE' font-family='serif'>C</text></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet" />
+
+  <!-- Phosphor icons -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+
+  <link rel="stylesheet" href="/Css/style.css" />
+</head>
+<body class="is-loading">
+
+  <canvas id="petals" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-dot"><span class="cursor-label"></span></div>
+  </div>
+
+  <!-- ============ Preloader ============ -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="pre-inner">
+      <svg class="pre-flower" viewBox="0 0 100 100">
+        <g class="pre-petal"><path d="M50 50 C40 36 40 20 50 9 C60 20 60 36 50 50 Z"/></g>
+        <g class="pre-petal" transform="rotate(60 50 50)"><path d="M50 50 C40 36 40 20 50 9 C60 20 60 36 50 50 Z"/></g>
+        <g class="pre-petal" transform="rotate(120 50 50)"><path d="M50 50 C40 36 40 20 50 9 C60 20 60 36 50 50 Z"/></g>
+        <g class="pre-petal" transform="rotate(180 50 50)"><path d="M50 50 C40 36 40 20 50 9 C60 20 60 36 50 50 Z"/></g>
+        <g class="pre-petal" transform="rotate(240 50 50)"><path d="M50 50 C40 36 40 20 50 9 C60 20 60 36 50 50 Z"/></g>
+        <g class="pre-petal" transform="rotate(300 50 50)"><path d="M50 50 C40 36 40 20 50 9 C60 20 60 36 50 50 Z"/></g>
+        <circle class="pre-core" cx="50" cy="50" r="5.5"/>
+      </svg>
+      <div class="pre-script-w"><div class="pre-script">Candy Clouds</div></div>
+      <div class="pre-count" id="preCount">0</div>
+    </div>
+  </div>
+
+  <!-- ============ Nav ============ -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#hero">
+      <i class="ph-fill ph-flower-lotus"></i>
+      <span class="brand-script">Candy Clouds</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">قصتنا</a>
+      <a href="#gallery">أعمالنا</a>
+      <a href="#videos">لحظاتنا</a>
+      <a href="#prices">الأسعار</a>
+      <a href="#contact">تواصل</a>
+    </nav>
+    <a class="btn btn-solid nav-cta" href="https://wa.me/962790119286" data-wa target="_blank" rel="noopener">
+      <i class="ph-fill ph-whatsapp-logo"></i> اطلب الآن
+    </a>
+    <button class="burger" id="burger" aria-label="القائمة"><span></span><span></span></button>
+  </header>
+
+  <!-- ============ Mobile menu ============ -->
+  <div class="menu" id="menu">
+    <nav class="menu-links">
+      <div class="menu-link-w"><a class="menu-link" href="#hero">الرئيسية<small>01</small></a></div>
+      <div class="menu-link-w"><a class="menu-link" href="#about">قصتنا<small>02</small></a></div>
+      <div class="menu-link-w"><a class="menu-link" href="#gallery">أعمالنا<small>03</small></a></div>
+      <div class="menu-link-w"><a class="menu-link" href="#videos">لحظاتنا<small>04</small></a></div>
+      <div class="menu-link-w"><a class="menu-link" href="#prices">الأسعار<small>05</small></a></div>
+      <div class="menu-link-w"><a class="menu-link" href="#contact">تواصل<small>06</small></a></div>
+    </nav>
+    <div class="menu-foot">
+      <a class="menu-social" href="https://www.instagram.com/candy.clouds.jo/" target="_blank" rel="noopener" aria-label="إنستغرام"><i class="ph ph-instagram-logo"></i></a>
+      <a class="menu-social" href="https://wa.me/962790119286" data-wa target="_blank" rel="noopener" aria-label="واتساب"><i class="ph ph-whatsapp-logo"></i></a>
+      <a class="menu-social" href="tel:+962790119286" aria-label="اتصال"><i class="ph ph-phone"></i></a>
+      <span class="menu-script">Candy Clouds</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="hero-kicker"><i class="ph-fill ph-sparkle"></i> candy.clouds.jo — متجر حلوى وورد</p>
+          <h1 class="hero-title">
+            <span class="line"><span class="li">حيثُ تلتقي</span></span>
+            <span class="line"><span class="li">الحلوى <em>بالوِرد</em></span></span>
+            <span class="line script-line"><span class="li">Candy Clouds</span></span>
+          </h1>
+          <p class="hero-sub">مختصون بجميع باقات الورد والكاندي — تشكيلات مصنوعة يدويًا بحب في متجرنا بالأردن، لكل مناسبة ولمسة حب. اطلب الآن عبر واتساب.</p>
+          <div class="hero-cta">
+            <a class="btn btn-solid" href="https://wa.me/962790119286" data-wa target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> اطلب عبر واتساب</a>
+            <a class="btn btn-ghost" href="https://www.instagram.com/candy.clouds.jo/" target="_blank" rel="noopener"><i class="ph ph-instagram-logo"></i> تابعنا على إنستغرام</a>
+          </div>
+        </div>
+
+        <div class="hero-stage" id="ringStage" data-cursor="اسحب">
+          <div class="ring-shadow" aria-hidden="true"></div>
+          <div class="ring" id="ring" aria-hidden="true">
+            <div class="ring-item" style="--i:0" data-num="01"><img src="/Images/1.png" alt="" draggable="false"></div>
+            <div class="ring-item" style="--i:1" data-num="02"><img src="/Images/2.png" alt="" draggable="false"></div>
+            <div class="ring-item" style="--i:2" data-num="03"><img src="/Images/3.png" alt="" draggable="false"></div>
+            <div class="ring-item" style="--i:3" data-num="04"><img src="/Images/4.png" alt="" draggable="false"></div>
+            <div class="ring-item" style="--i:4" data-num="05"><img src="/Images/5.png" alt="" draggable="false"></div>
+            <div class="ring-item" style="--i:5" data-num="06"><img src="/Images/6.png" alt="" draggable="false"></div>
+            <div class="ring-item" style="--i:6" data-num="07"><img src="/Images/7.png" alt="" draggable="false"></div>
+            <div class="ring-item" style="--i:7" data-num="08"><img src="/Images/8.png" alt="" draggable="false"></div>
+          </div>
+          <p class="ring-hint"><i class="ph ph-hand-grabbing"></i> اسحب الباقات لتدويرها</p>
+        </div>
+      </div>
+
+      <div class="hero-foot">
+        <p class="scroll-hint">مرّر للأسفل<span class="scroll-line"></span></p>
+        <a class="hero-phone" href="tel:+962790119286" dir="ltr"><i class="ph ph-phone"></i> +962 79 011 9286</a>
+      </div>
+    </section>
+
+    <!-- ============ Marquee ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="mq-track">
+        <div class="mq-group">
+          <span class="mq-item"><i class="ph-fill ph-flower-lotus"></i>ورد طبيعي</span>
+          <span class="mq-item"><i class="ph-fill ph-flower-lotus"></i>باقات كاندي</span>
+          <span class="mq-item"><i class="ph-fill ph-flower-lotus"></i>بوكسات هدايا</span>
+          <span class="mq-item"><i class="ph-fill ph-flower-lotus"></i>تخرّج وأعراس</span>
+          <span class="mq-item"><i class="ph-fill ph-flower-lotus"></i>تغليف يدوي</span>
+          <span class="mq-item"><i class="ph-fill ph-flower-lotus"></i>تشكيلات حسب الطلب</span>
+        </div>
+        <div class="mq-group">
+          <span class="mq-item"><i class="ph-fill ph-flower-lotus"></i>ورد طبيعي</span>
+          <span class="mq-item"><i class="ph-fill ph-flower-lotus"></i>باقات كاندي</span>
+          <span class="mq-item"><i class="ph-fill ph-flower-lotus"></i>بوكسات هدايا</span>
+          <span class="mq-item"><i class="ph-fill ph-flower-lotus"></i>تخرّج وأعراس</span>
+          <span class="mq-item"><i class="ph-fill ph-flower-lotus"></i>تغليف يدوي</span>
+          <span class="mq-item"><i class="ph-fill ph-flower-lotus"></i>تشكيلات حسب الطلب</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about">
+      <div class="wrap about-grid">
+        <div class="about-media">
+          <figure class="about-img main parallax">
+            <img src="/Images/2.png" alt="باقة ورد طبيعي من Candy Clouds">
+          </figure>
+          <figure class="about-img float">
+            <img src="/Images/4.png" alt="تشكيلة كاندي من Candy Clouds" loading="lazy">
+          </figure>
+          <div class="about-badge" aria-hidden="true">
+            <svg viewBox="0 0 100 100">
+              <defs><path id="badgeCircle" d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"/></defs>
+              <text><textPath href="#badgeCircle">CANDY &amp; FLOWERS • HANDMADE WITH LOVE • </textPath></text>
+            </svg>
+            <i class="ph-fill ph-heart"></i>
+          </div>
+        </div>
+        <div class="about-copy">
+          <p class="kicker"><span class="kicker-script">Our Story</span> قصتنا</p>
+          <h2 class="h2 split-words">نصنع السعادة باقةً باقة</h2>
+          <p class="about-text" data-reveal>في «Candy Clouds» نحوّل الورد والكاندي إلى هدايا تُروى حكايتها — كل باقة تُغلَّف يدويًا بعناية، وكل تشكيلة تُصمَّم خصيصًا لتناسب مناسبتك وميزانيتك. من باقة ورد بسيطة تُرسم على وجهك ابتسامة، إلى بوكس فاخر يملأ المكان عبقًا وحبًا.</p>
+          <ul class="stats" data-reveal="0.1">
+            <li><strong class="stat-num" data-count="1582">0</strong><span>متابع على إنستغرام</span></li>
+            <li><strong class="stat-num" data-count="12">0</strong><span>تشكيلة معروضة</span></li>
+            <li><strong class="stat-num" data-count="5">0</strong><span>دينار تبدأ منها الباقات</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY (pinned horizontal) ============ -->
+    <section class="gallery" id="gallery">
+      <div class="gallery-pin" id="galleryPin">
+        <div class="wrap">
+          <header class="sec-head">
+            <p class="kicker"><span class="kicker-script">Our Gallery</span> أعمالنا</p>
+            <h2 class="h2 split-words">تشكيلات من متجرنا</h2>
+          </header>
+        </div>
+        <div class="gallery-viewport">
+          <div class="gallery-track" id="galleryTrack">
+            <figure class="g-card tilt" data-cursor="عرض">
+              <div class="g-media"><img src="/Images/1.png" alt="من أعمال Candy Clouds — تشكيلة 01" loading="lazy"></div>
+              <figcaption><span class="g-num">01</span><span class="g-label">باقات الورد</span></figcaption>
+            </figure>
+            <figure class="g-card tilt" data-cursor="عرض">
+              <div class="g-media"><img src="/Images/2.png" alt="من أعمال Candy Clouds — تشكيلة 02" loading="lazy"></div>
+              <figcaption><span class="g-num">02</span><span class="g-label">تشكيلات مميزة</span></figcaption>
+            </figure>
+            <figure class="g-card tilt" data-cursor="عرض">
+              <div class="g-media"><img src="/Images/3.png" alt="من أعمال Candy Clouds — تشكيلة 03" loading="lazy"></div>
+              <figcaption><span class="g-num">03</span><span class="g-label">بوكسات الهدايا</span></figcaption>
+            </figure>
+            <figure class="g-card tilt" data-cursor="عرض">
+              <div class="g-media"><img src="/Images/4.png" alt="من أعمال Candy Clouds — تشكيلة 04" loading="lazy"></div>
+              <figcaption><span class="g-num">04</span><span class="g-label">باقات الكاندي</span></figcaption>
+            </figure>
+            <figure class="g-card tilt" data-cursor="عرض">
+              <div class="g-media"><img src="/Images/5.png" alt="من أعمال Candy Clouds — تشكيلة 05" loading="lazy"></div>
+              <figcaption><span class="g-num">05</span><span class="g-label">الدمى والهدايا</span></figcaption>
+            </figure>
+            <figure class="g-card tilt" data-cursor="عرض">
+              <div class="g-media"><img src="/Images/6.png" alt="من أعمال Candy Clouds — تشكيلة 06" loading="lazy"></div>
+              <figcaption><span class="g-num">06</span><span class="g-label">ورد طبيعي</span></figcaption>
+            </figure>
+            <figure class="g-card tilt" data-cursor="عرض">
+              <div class="g-media"><img src="/Images/7.png" alt="من أعمال Candy Clouds — تشكيلة 07" loading="lazy"></div>
+              <figcaption><span class="g-num">07</span><span class="g-label">لمسات خاصة</span></figcaption>
+            </figure>
+            <figure class="g-card tilt" data-cursor="عرض">
+              <div class="g-media"><img src="/Images/8.png" alt="من أعمال Candy Clouds — تشكيلة 08" loading="lazy"></div>
+              <figcaption><span class="g-num">08</span><span class="g-label">كاندي &amp; ورد</span></figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="gallery-progress"><div class="gallery-bar" id="galleryBar"></div></div>
+      </div>
+    </section>
+
+    <!-- ============ VIDEOS ============ -->
+    <section class="videos" id="videos">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="kicker"><span class="kicker-script">Moments</span> لحظات من المتجر</p>
+          <h2 class="h2 split-words">شاهد أجواء Candy Clouds</h2>
+          <p class="sec-note" data-reveal><i class="ph-fill ph-cursor-click"></i> اضغط على أي فيديو لمشاهدته بالصوت</p>
+        </header>
+        <div class="videos-grid">
+          <figure class="v-card v-main tilt" data-cursor="تشغيل" data-reveal>
+            <video src="/Videos/1.mp4" muted loop playsinline preload="auto"></video>
+            <figcaption>
+              <span>جولة داخل Candy Clouds</span>
+              <span class="v-play"><i class="ph-fill ph-play"></i></span>
+            </figcaption>
+          </figure>
+          <figure class="v-card tilt" data-cursor="تشغيل" data-reveal="0.1">
+            <video src="/Videos/2.mp4" muted loop playsinline preload="metadata"></video>
+            <figcaption>
+              <span>تشكيلات ورد طبيعي</span>
+              <span class="v-play"><i class="ph-fill ph-play"></i></span>
+            </figcaption>
+          </figure>
+          <figure class="v-card tilt" data-cursor="تشغيل" data-reveal="0.2">
+            <video src="/Videos/3.mp4" muted loop playsinline preload="metadata"></video>
+            <figcaption>
+              <span>باقات كاندي وهدايا</span>
+              <span class="v-play"><i class="ph-fill ph-play"></i></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OCCASIONS ============ -->
+    <section class="occasions" id="occasions">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="kicker"><span class="kicker-script">Occasions</span> المناسبات</p>
+          <h2 class="h2 split-words">لكل مناسبة وردتُنا</h2>
+        </header>
+        <ul class="occ-list">
+          <li class="occ-row" data-img="/Images/6.png" data-wa="مرحباً Candy Clouds، أريد باقة لمناسبة التخرج">
+            <span class="occ-index">01</span>
+            <h3 class="occ-name">التخرّج</h3>
+            <span class="occ-desc">باقة تتوّج نجاحهم</span>
+            <span class="occ-thumb"><img src="/Images/6.png" alt="" loading="lazy"></span>
+            <span class="occ-arrow"><i class="ph ph-arrow-up-left"></i></span>
+          </li>
+          <li class="occ-row" data-img="/Images/5.png" data-wa="مرحباً Candy Clouds، أريد باقة لعيد ميلاد">
+            <span class="occ-index">02</span>
+            <h3 class="occ-name">عيد الميلاد</h3>
+            <span class="occ-desc">كاندي ودبدوبات وضحكات</span>
+            <span class="occ-thumb"><img src="/Images/5.png" alt="" loading="lazy"></span>
+            <span class="occ-arrow"><i class="ph ph-arrow-up-left"></i></span>
+          </li>
+          <li class="occ-row" data-img="/Images/1.png" data-wa="مرحباً Candy Clouds، أريد باقة رومانسية">
+            <span class="occ-index">03</span>
+            <h3 class="occ-name">الحب والرومانسية</h3>
+            <span class="occ-desc">قلبك... في باقة</span>
+            <span class="occ-thumb"><img src="/Images/1.png" alt="" loading="lazy"></span>
+            <span class="occ-arrow"><i class="ph ph-arrow-up-left"></i></span>
+          </li>
+          <li class="occ-row" data-img="/Images/3.png" data-wa="مرحباً Candy Clouds، أريد تشكيلة لمناسبة زواج أو خطوبة">
+            <span class="occ-index">04</span>
+            <h3 class="occ-name">الزواج والخطوبة</h3>
+            <span class="occ-desc">لمسة ورد لحظة العمر</span>
+            <span class="occ-thumb"><img src="/Images/3.png" alt="" loading="lazy"></span>
+            <span class="occ-arrow"><i class="ph ph-arrow-up-left"></i></span>
+          </li>
+          <li class="occ-row" data-img="8.png" data-wa="مرحباً Candy Clouds، أريد باقة كاندي وهدايا">
+            <span class="occ-index">05</span>
+            <h3 class="occ-name">كاندي وهدايا</h3>
+            <span class="occ-desc">حلاوة تُهدى في كل وقت</span>
+            <span class="occ-thumb"><img src="/Images/8.png" alt="" loading="lazy"></span>
+            <span class="occ-arrow"><i class="ph ph-arrow-up-left"></i></span>
+          </li>
+        </ul>
+      </div>
+      <div id="occFloat" aria-hidden="true">
+        <div class="occ-float-inner"><img src="/Images/6.png" alt=""></div>
+      </div>
+    </section>
+
+    <!-- ============ PRICES ============ -->
+    <section class="prices" id="prices">
+      <div class="wrap prices-grid">
+        <div class="prices-head">
+          <p class="kicker"><span class="kicker-script">Prices</span> الأسعار</p>
+          <h2 class="h2 split-words">باقات الورد الطبيعي</h2>
+          <p class="prices-text" data-reveal>أسعار واضحة بلا مفاجآت — نفس الأسعار المعروضة على صفحتنا على إنستغرام. اختر باقتك واطلبها مباشرة عبر واتساب.</p>
+          <a class="btn btn-solid" href="https://wa.me/962790119286" data-wa target="_blank" rel="noopener" data-reveal="0.1"><i class="ph-fill ph-whatsapp-logo"></i> للاستفسار والطلب</a>
+        </div>
+        <div>
+          <ul class="price-list">
+            <li class="price-row">
+              <span class="p-name">باقة ورد طبيعي</span>
+              <span class="p-count">20 وردة</span>
+              <span class="p-dots"></span>
+              <span class="p-price">5 <small>دنانير</small></span>
+              <a class="p-order" href="https://wa.me/962790119286" data-wa="مرحباً Candy Clouds، أريد طلب باقة ورد طبيعي (20 وردة) بـ 5 دنانير" target="_blank" rel="noopener" aria-label="اطلب باقة 20 وردة"><i class="ph ph-whatsapp-logo"></i></a>
+            </li>
+            <li class="price-row">
+              <span class="p-name">باقة ورد طبيعي</span>
+              <span class="p-count">40 وردة</span>
+              <span class="p-dots"></span>
+              <span class="p-price">8 <small>دنانير</small></span>
+              <a class="p-order" href="https://wa.me/962790119286" data-wa="مرحباً Candy Clouds، أريد طلب باقة ورد طبيعي (40 وردة) بـ 8 دنانير" target="_blank" rel="noopener" aria-label="اطلب باقة 40 وردة"><i class="ph ph-whatsapp-logo"></i></a>
+            </li>
+            <li class="price-row">
+              <span class="p-name">باقة ورد طبيعي</span>
+              <span class="p-count">60 وردة</span>
+              <span class="p-dots"></span>
+              <span class="p-price">13 <small>دينارًا</small></span>
+              <a class="p-order" href="https://wa.me/962790119286" data-wa="مرحباً Candy Clouds، أريد طلب باقة ورد طبيعي (60 وردة) بـ 13 دينارًا" target="_blank" rel="noopener" aria-label="اطلب باقة 60 وردة"><i class="ph ph-whatsapp-logo"></i></a>
+            </li>
+            <li class="price-row">
+              <span class="p-name">باقة ورد طبيعي</span>
+              <span class="p-count">100 وردة</span>
+              <span class="p-dots"></span>
+              <span class="p-price">18 <small>دينارًا</small></span>
+              <a class="p-order" href="https://wa.me/962790119286" data-wa="مرحباً Candy Clouds، أريد طلب باقة ورد طبيعي (100 وردة) بـ 18 دينارًا" target="_blank" rel="noopener" aria-label="اطلب باقة 100 وردة"><i class="ph ph-whatsapp-logo"></i></a>
+            </li>
+            <li class="price-row">
+              <span class="p-name">باقة ورد طبيعي</span>
+              <span class="p-count">200 وردة</span>
+              <span class="p-dots"></span>
+              <span class="p-price">35 <small>دينارًا</small></span>
+              <a class="p-order" href="https://wa.me/962790119286" data-wa="مرحباً Candy Clouds، أريد طلب باقة ورد طبيعي (200 وردة) بـ 35 دينارًا" target="_blank" rel="noopener" aria-label="اطلب باقة 200 وردة"><i class="ph ph-whatsapp-logo"></i></a>
+            </li>
+            <li class="price-row">
+              <span class="p-name">بوكس ورد مع كاندي</span>
+              <span class="p-count">تشكيلة فاخرة</span>
+              <span class="p-dots"></span>
+              <span class="p-price">من 10 <small>دنانير</small></span>
+              <a class="p-order" href="https://wa.me/962790119286" data-wa="مرحباً Candy Clouds، أريد طلب بوكس ورد مع كاندي" target="_blank" rel="noopener" aria-label="اطلب بوكس ورد مع كاندي"><i class="ph ph-whatsapp-logo"></i></a>
+            </li>
+          </ul>
+          <p class="price-note" data-reveal><i class="ph-fill ph-sparkle"></i> الأسعار قابلة للتغيير حسب الموسم والتشكيلة — الطلب حسب المتوفر.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact">
+      <i class="ph-fill ph-flower-lotus contact-flower" aria-hidden="true"></i>
+      <div class="wrap">
+        <p class="kicker kicker-center"><span class="kicker-script">Order Now</span> اطلب الآن</p>
+        <h2 class="contact-title">
+          <span class="split-words">خلّي مناسبتك</span>
+          <span class="split-words">تنبض بالوِرد</span>
+        </h2>
+        <p class="contact-sub" data-reveal>راسلنا الآن على واتساب وأرسل لك تشكيلات حسب طلبك — للاستفسار والطلب 0790119286</p>
+        <div class="contact-actions" data-reveal="0.1">
+          <a class="btn btn-light btn-big" href="https://wa.me/962790119286" data-wa target="_blank" rel="noopener"><i class="ph-fill ph-whatsapp-logo"></i> تواصل عبر واتساب</a>
+          <a class="btn btn-outline-light btn-big" href="https://www.instagram.com/candy.clouds.jo/" target="_blank" rel="noopener"><i class="ph ph-instagram-logo"></i> candy.clouds.jo</a>
+        </div>
+        <a class="contact-phone" href="tel:+962790119286" dir="ltr" data-reveal="0.2">+962 79 011 9286</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-mq" aria-hidden="true">
+      <div class="mq-track">
+        <div class="mq-group">
+          <span class="foot-item"><span class="foot-script">Candy Clouds</span><i class="ph ph-flower-lotus"></i></span>
+          <span class="foot-item"><span class="foot-script">Flower &amp; Candy</span><i class="ph ph-flower-lotus"></i></span>
+          <span class="foot-item"><span class="foot-script">Candy Clouds</span><i class="ph ph-flower-lotus"></i></span>
+        </div>
+        <div class="mq-group">
+          <span class="foot-item"><span class="foot-script">Candy Clouds</span><i class="ph ph-flower-lotus"></i></span>
+          <span class="foot-item"><span class="foot-script">Flower &amp; Candy</span><i class="ph ph-flower-lotus"></i></span>
+          <span class="foot-item"><span class="foot-script">Candy Clouds</span><i class="ph ph-flower-lotus"></i></span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Candy Clouds — جميع الحقوق محفوظة</span>
+      <span>صُنع بحب في الأردن <i class="ph-fill ph-heart"></i></span>
+    </div>
+  </footer>
+
+  <!-- ============ Lightbox ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="عرض الوسائط">
+    <button class="lb-close" id="lbClose" aria-label="إغلاق"><i class="ph ph-x"></i></button>
+    <div class="lb-content" id="lbContent"></div>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="/Js/script.js"></script>
+</body>
+</html>
